@@ -4,12 +4,11 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: ${CONTAINER_PHPMA_NAME}
-    environment:
-      - PMA_ARBITRARY=1
     restart: always
     volumes:
       - /sessions
     environment:
+      PMA_ARBITRARY: 1
       VIRTUAL_HOST: ${DOMAINS}
       LETSENCRYPT_HOST: ${DOMAINS}
       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
